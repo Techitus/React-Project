@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = ({ type, onAdd }) => {
+const Form = ({ type, adding }) => {
   const [data, setData] = useState({
     title: "",
     subtitle: "",
@@ -17,9 +17,9 @@ const Form = ({ type, onAdd }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd(data);
+    adding(data);
   };
-  //   console.log(data);
+
   return (
     <div className="flex justify-center  w-screen h-screen bg-white">
       <div className="container mx-auto my-3 px-4 lg:px-20">

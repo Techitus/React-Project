@@ -12,6 +12,7 @@ const Login = () => {
       // console.log("hand");
       const responsee = await axios.post(`${baseUrl}/login`, newData); //importing baseurl which store .env
       if (responsee.status === 200) {
+        localStorage.setItem("token", responsee.data.token); //adding token of login in the localstorage
         navigate("/");
       } else {
         alert("Login Fail");
