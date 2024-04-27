@@ -67,7 +67,7 @@ const Form = ({ type, adding }) => {
             <div className="my-2">
               <textarea
                 placeholder="Discription*"
-                name="discription"
+                name="description"
                 className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 onChange={handleChange}
                 required

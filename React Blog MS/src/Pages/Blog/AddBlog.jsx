@@ -7,7 +7,7 @@ import { baseUrl } from "../../config";
 import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const handelCreateBlog = async (data) => {
     try {
       const response = await axios.post(`${baseUrl}/blog`, data, {
