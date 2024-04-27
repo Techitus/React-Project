@@ -2,6 +2,7 @@ import React from "react";
 import Form from "./Components/Form/Form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../../config";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -9,10 +10,7 @@ const Login = () => {
     // Hitting API for connecting with the backend
     try {
       // console.log("hand");
-      const responsee = await axios.post(
-        "https://react30.onrender.com/api/user/login",
-        newData
-      );
+      const responsee = await axios.post(`${baseUrl}/login`, newData); //importing baseurl which store .env
       if (responsee.status === 200) {
         navigate("/");
       } else {

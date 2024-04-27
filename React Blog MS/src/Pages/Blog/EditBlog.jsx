@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../Components/Layout/Layout";
-import Form from "./components/Card/Form/Form";
+import Form from "./components/Form/form";
 
 const EditBlog = () => {
   return (
