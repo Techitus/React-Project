@@ -6,6 +6,7 @@ import { baseUrl } from "../../config";
 
 const SingleBlog = () => {
   const { id } = useParams();
+
   const [blog, setBlog] = useState({});
 
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = ({ type, adding }) => {
+const Form = ({ type, adding,newhandel }) => {
   const [data, setData] = useState({
     title: "",
     subtitle: "",
