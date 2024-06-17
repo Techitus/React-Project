@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = ({ type, adding,newhandel }) => {
+const Form = ({ type, adding, newhandel }) => {
   const [data, setData] = useState({
     title: "",
     subtitle: "",
@@ -57,7 +57,7 @@ const Form = ({ type, adding,newhandel }) => {
               />
               <input
                 className="w-full bg-gray-100 text-gray-900 mt-2 p-2 rounded-lg focus:outline-none focus:shadow-outline"
-                type="number"
+                type="text"
                 placeholder="Category*"
                 name="category"
                 onChange={handleChange}
