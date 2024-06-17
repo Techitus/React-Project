@@ -7,7 +7,7 @@ import { baseUrl } from "../../config";
 
 const EditBlog = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const navigate = useNavigate();
   const handleEditBlog = async (data) => {
     const response = await axios.patch(`${baseUrl}/blog/${id}`, data, {
@@ -18,7 +18,7 @@ const EditBlog = () => {
     });
 
     try {
-      if (response.status === 201) {
+      if (response.status === 200) {
         navigate("/");
       } else {
         alert("Something went wrong");
@@ -29,7 +29,7 @@ const EditBlog = () => {
   };
   return (
     <Layout>
-      <Form type="Edit" Onsubmit={handleEditBlog} buttonname="Edit" />
+      <Form type="Edit" adding={handleEditBlog} buttonname="Edit" />
     </Layout>
   );
 };
