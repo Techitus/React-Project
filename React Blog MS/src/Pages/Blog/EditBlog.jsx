@@ -18,7 +18,7 @@ const EditBlog = () => {
     });
 
     try {
-      if (response.status === 201) {
+      if (response.status === 200) {
         navigate("/");
       } else {
         alert("Something went wrong");
