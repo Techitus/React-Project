@@ -40,7 +40,7 @@ export function register(data) {
         dispatch(setStatus(statuses.ERROR));
       }
     } catch (error) {
-      // console.log(error); to find any error put log inside the catch in the name of the error 
+      // console.log(error); to find any error put log inside the catch in the name of the error
 
       dispatch(setStatus(statuses.ERROR));
     }
