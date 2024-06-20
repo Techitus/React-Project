@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const htmlForm = ({ type, onSubmit }) => {
+const htmlForm = ({ type, onSubmit, user }) => {
   const [data, setData] = useState({
     email: "", //useState ko use le initail value  lai empty rakheko
     username: "",
@@ -33,6 +33,8 @@ const htmlForm = ({ type, onSubmit }) => {
                   : "Register here to continue..."}
               </h1>
             </div>
+            {/* Accept the user name from the user and display it */}
+            {type === "Login" && `Hello, ${user?.username}`}
             <form onSubmit={handleSubmit}>
               <div className="divide-y divide-gray-200">
                 <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">

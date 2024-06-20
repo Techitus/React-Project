@@ -13,7 +13,7 @@ const authSlice = createSlice({
     setUser(state, action) {
       state.user = action.payload;
     },
-    setTOken(state, action) {
+    setToken(state, action) {
       state.token = action.payload;
     },
     setStatus(state, action) {
@@ -21,12 +21,11 @@ const authSlice = createSlice({
     },
   },
 });
-export const { setStatus, setTOken, setUser } = authSlice.actions;
+export const { setUser, setToken, setStatus } = authSlice.actions;
 export default authSlice.reducer;
 export function register(data) {
   return async function registerThunk(dispatch) {
-    console.log("run");
-    // dispatch(setUser(data));
+    // console.log("run");
     dispatch(setStatus(statuses.LOADING));
     try {
       const response = await axios.post(
@@ -34,7 +33,8 @@ export function register(data) {
         data
       );
       // console.log("hello");
-      if (response === 201) {
+      if (response.status === 201) {
+        dispatch(setUser(data));
         dispatch(setStatus(statuses.SUCCESS));
       } else {
         dispatch(setStatus(statuses.ERROR));
@@ -55,13 +55,16 @@ export function login(data) {
         `https://react30.onrender.com/api/user/login`,
         data
       );
-      if (response === 200 && response.data.token) {
-        dispatch(setTOken(response.data.token));
+      if (response.status === 200 && response.data.token) {
+        // console.log("Setting token:", response.data.token);
+        console.log("test");
+        dispatch(setToken(response.data.token));
         dispatch(setStatus(statuses.SUCCESS));
       } else {
         dispatch(setStatus(statuses.ERROR));
       }
     } catch (error) {
+      // console.log(error);
       dispatch(setStatus(statuses.ERROR));
     }
   };
