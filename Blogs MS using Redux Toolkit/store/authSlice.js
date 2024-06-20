@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import statuses from "../src/globals/status/statuses";
 import axios from "axios";
+import API from "../src/http";
 
 const authSlice = createSlice({
   name: "auth",
@@ -28,10 +29,7 @@ export function register(data) {
     // console.log("run");
     dispatch(setStatus(statuses.LOADING));
     try {
-      const response = await axios.post(
-        `https://react30.onrender.com/api/user/register`,
-        data
-      );
+      const response = await API.post(`register`, data);
       // console.log("hello");
       if (response.status === 201) {
         dispatch(setUser(data));
@@ -51,10 +49,7 @@ export function login(data) {
   return async function loginThunk(dispatch) {
     dispatch(setStatus(statuses.LOADING));
     try {
-      const response = await axios.post(
-        `https://react30.onrender.com/api/user/login`,
-        data
-      );
+      const response = await API.post(`login`, data);
       if (response.status === 200 && response.data.token) {
         // console.log("Setting token:", response.data.token);
         console.log("test");
