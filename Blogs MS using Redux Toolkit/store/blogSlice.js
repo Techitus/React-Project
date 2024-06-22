@@ -101,10 +101,12 @@ export const deleteBlog = (id) => {
   };
 };
 export function editBlog(id, data) {
+  console.log("hello");
   return async function editBlogThunk(dispatch) {
     dispatch(setStatus(statuses.LOADING));
     try {
-      const response = await API.patch("blog/${id}");
+      const response = await API.patch(`blog/${id}`, data);
+      c;
       if (response.status === 200) {
         // console.log("Setting token:", response.data.token);
 
@@ -118,11 +120,13 @@ export function editBlog(id, data) {
     }
   };
 }
-export function fetchSingleBlog(id, data) {
+export function fetchSingleBlog(id) {
+  console.log(id);
   return async function fetchSingleBlogThunk(dispatch) {
     dispatch(setStatus(statuses.LOADING));
     try {
-      const response = await API.patch("blog/${id}");
+      const response = await API.get(`blog/${id}`);
+
       if (response.status === 200) {
         // console.log("Setting token:", response.data.token);
         dispatch(setBlog(response.data.data));
