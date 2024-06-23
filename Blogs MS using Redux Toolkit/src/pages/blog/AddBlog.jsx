@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Layout from "../../components/layout/Layout";
 import Form from "./components/form/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { addBlog } from "../../../store/blogSlice";
-import { data } from "autoprefixer";
-import statuses from "../../globals/status/statuses";
 import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {

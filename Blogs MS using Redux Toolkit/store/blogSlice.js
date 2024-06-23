@@ -31,10 +31,11 @@ export default blogSlice.reducer;
 export function addBlog(data) {
   return async function addBlogThunk(dispatch) {
     dispatch(setStatus(statuses.LOADING));
+    // console.log(localStorage.getItem("jwttoken"));
     try {
       const response = await API.post("blog", data, {
         headers: {
-          "Content-Type": "multipart/form.data",
+          "Content-Type": "multipart/form-data",
         },
       });
       if (response.status === 201) {

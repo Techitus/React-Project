@@ -17,8 +17,8 @@ const Form = ({ type, onSubmit }) => {
     });
   };
   const handleSubmit = (e) => {
-    onSubmit(data);
     e.preventDefault();
+    onSubmit(data);
     // console.log("Hello");
   };
   return (

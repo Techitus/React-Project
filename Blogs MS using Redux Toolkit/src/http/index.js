@@ -4,7 +4,7 @@ const API = axios.create({
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
-    Authorization: localStorage.getItem("jwttoken"),
+    "Authorization": localStorage.getItem("jwttoken"),
   },
 });
 export default API;

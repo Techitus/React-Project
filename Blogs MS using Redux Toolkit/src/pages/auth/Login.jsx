@@ -7,7 +7,7 @@ import { login, setStatus } from "../../../store/authSlice";
 
 const Login = () => {
   //Destructure the and send as props to the form.jsx
-  const { user, status,token } = useSelector((state) => state.auth);
+  const { user, status, token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogin = (data) => {
@@ -17,7 +17,7 @@ const Login = () => {
     // console.log("test");
     //check the status value
     if (status === statuses.SUCCESS) {
-      localStorage.setItem("jwttoken",token)
+      localStorage.setItem("jwttoken", token);
       navigate("/");
       dispatch(setStatus(null));
     }
